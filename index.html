@@ -4,920 +4,7 @@
 <title>Opal 100-Moments</title>
 <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Caveat:wght@600;700&display=swap">
-<style>
-    :root {
-        --bg-gold: #FAF4D4;
-        --bg-pink: #F4D6DC;
-        --bg-pearl: #F5F0ED;
-        --surface: #FFFDF8;
-        --surface-2: #FFF7EC;
-        --ink: #3A0510;
-        --ink-soft: #7C0116;
-        --cherry: #7C0116;
-        --cherry-deep: #7C0116;
-        --strawberry: #DB8291;
-        --pinkfoam: #F4D6DC;
-        --goldenrod: #FAF4D4;
-        --pearl: #F5F0ED;
-        --gold-ink: #B9860E;
-        --gold-fill: #EFC96D;
-        --line: rgba(124, 1, 22, .16);
-        --shadow-col: rgba(74, 1, 16, .28);
-        --genz: #7C0116;
-        --alpha: #F0E8CE;
-        --millennial: #DB8291;
-        --radius-lg: 28px;
-        --radius-md: 18px;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    html,
-    body {
-        height: 100%;
-    }
-
-    body {
-        margin: 0;
-        min-height: 100%;
-        background: var(--bg-pearl);
-        color: var(--ink);
-        font-family: 'Poppins', -apple-system, 'Segoe UI', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-    }
-
-    img {
-        max-width: 100%;
-    }
-
-    [hidden] {
-        display: none !important;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-        margin: 0;
-    }
-
-    button {
-        font-family: inherit;
-    }
-
-    .display {
-        font-family: 'Baloo 2', cursive;
-    }
-
-    .script {
-        font-family: 'Caveat', cursive;
-    }
-
-    /* ---------------- animated background ---------------- */
-    .bg-scene {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        overflow: hidden;
-        background:
-            radial-gradient(120% 90% at 12% -10%, #FFF7DD 0%, transparent 55%),
-            radial-gradient(120% 90% at 100% 0%, var(--bg-pink) 0%, transparent 60%),
-            linear-gradient(165deg, var(--bg-gold) 0%, var(--bg-pearl) 45%, var(--bg-pink) 100%);
-        animation: sceneShift 22s ease-in-out infinite alternate;
-        background-size: 140% 140%;
-    }
-
-    @keyframes sceneShift {
-        0% {
-            background-position: 0% 0%, 100% 0%, 0% 0%;
-        }
-
-        100% {
-            background-position: 10% 10%, 80% 20%, 20% 10%;
-        }
-    }
-
-    .blob {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(2px);
-        opacity: .55;
-        will-change: transform;
-    }
-
-    .blob--1 {
-        width: 46vmax;
-        height: 46vmax;
-        left: -18vmax;
-        top: -16vmax;
-        background: radial-gradient(circle at 35% 30%, var(--strawberry), transparent 70%);
-        animation: drift1 26s ease-in-out infinite;
-    }
-
-    .blob--2 {
-        width: 38vmax;
-        height: 38vmax;
-        right: -14vmax;
-        top: 6vmax;
-        background: radial-gradient(circle at 60% 40%, var(--gold-fill), transparent 70%);
-        animation: drift2 30s ease-in-out infinite;
-    }
-
-    .blob--3 {
-        width: 42vmax;
-        height: 42vmax;
-        left: 8vmax;
-        bottom: -20vmax;
-        background: radial-gradient(circle at 50% 50%, var(--cherry), transparent 72%);
-        opacity: .18;
-        animation: drift3 34s ease-in-out infinite;
-    }
-
-    @keyframes drift1 {
-
-        0%,
-        100% {
-            transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-        }
-
-        50% {
-            transform: translate3d(4vmax, 5vmax, 0) rotate(12deg) scale(1.08);
-        }
-    }
-
-    @keyframes drift2 {
-
-        0%,
-        100% {
-            transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-        }
-
-        50% {
-            transform: translate3d(-5vmax, 4vmax, 0) rotate(-10deg) scale(1.1);
-        }
-    }
-
-    @keyframes drift3 {
-
-        0%,
-        100% {
-            transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-        }
-
-        50% {
-            transform: translate3d(3vmax, -4vmax, 0) rotate(8deg) scale(1.05);
-        }
-    }
-
-    .sticker-layer {
-        position: fixed;
-        inset: 0;
-        z-index: 5;
-        pointer-events: none;
-        perspective: 900px;
-    }
-
-    .sticker {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        border: 3px solid var(--surface);
-        box-shadow: 0 10px 0 rgba(74, 1, 16, .12), 0 16px 26px rgba(74, 1, 16, .18);
-        font-family: 'Baloo 2', cursive;
-        font-weight: 700;
-        letter-spacing: .01em;
-        line-height: 1.05;
-        transform-style: preserve-3d;
-        will-change: transform;
-        user-select: none;
-        pointer-events: none;
-    }
-
-    .sticker small {
-        display: block;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        letter-spacing: .08em;
-        font-size: .5em;
-        opacity: .85;
-    }
-
-    .sticker--star {
-        width: 132px;
-        height: 132px;
-        background: var(--genz);
-        color: var(--surface);
-        font-size: 16px;
-        clip-path: polygon(50% 0%, 61% 32%, 93% 25%, 73% 50%, 93% 75%, 61% 68%, 50% 100%, 39% 68%, 7% 75%, 27% 50%, 7% 25%, 39% 32%);
-        left: 4%;
-        top: 10%;
-        animation: floatA 9s ease-in-out infinite;
-    }
-
-    .sticker--arch {
-        width: 120px;
-        height: 120px;
-        background: var(--millennial);
-        color: var(--cherry-deep);
-        font-size: 14px;
-        border-radius: 50% 50% 14px 14px / 62% 62% 14px 14px;
-        right: 6%;
-        top: 6%;
-        animation: floatB 10.5s ease-in-out infinite;
-    }
-
-    .sticker--circle {
-        width: 112px;
-        height: 112px;
-        background: var(--alpha);
-        color: var(--cherry-deep);
-        font-size: 13px;
-        border-radius: 50%;
-        right: 2%;
-        bottom: 16%;
-        animation: floatC 8.5s ease-in-out infinite;
-    }
-
-    .sticker--tag {
-        width: 98px;
-        height: 64px;
-        background: var(--surface);
-        color: var(--cherry);
-        border-radius: 14px;
-        font-size: 11px;
-        font-weight: 700;
-        left: 3%;
-        bottom: 10%;
-        animation: floatA 11s ease-in-out infinite;
-        box-shadow: 0 8px 0 rgba(74, 1, 16, .10), 0 14px 22px rgba(74, 1, 16, .16);
-    }
-
-    .sticker--tag2 {
-        width: 90px;
-        height: 58px;
-        background: var(--surface);
-        color: var(--cherry);
-        border-radius: 12px;
-        font-size: 10px;
-        font-weight: 700;
-        left: 38%;
-        top: 11%;
-        animation: floatB 12.5s ease-in-out infinite;
-        box-shadow: 0 8px 0 rgba(74, 1, 16, .10), 0 14px 22px rgba(74, 1, 16, .16);
-    }
-
-    .sticker--pill {
-        width: 110px;
-        height: 40px;
-        background: var(--cherry);
-        color: var(--surface);
-        border-radius: 999px;
-        font-size: 12px;
-        right: 24%;
-        bottom: 2%;
-        animation: floatC 10s ease-in-out infinite;
-    }
-
-    .sticker--spark {
-        width: 46px;
-        height: 46px;
-        left: 26%;
-        top: 85%;
-        background: none;
-        border: none;
-        box-shadow: none;
-        color: var(--gold-ink);
-        font-size: 34px;
-        animation: spin 14s linear infinite;
-    }
-
-    .sticker--spark2 {
-        width: 36px;
-        height: 36px;
-        right: 30%;
-        top: 88%;
-        background: none;
-        border: none;
-        box-shadow: none;
-        color: var(--strawberry);
-        font-size: 28px;
-        animation: spin 10s linear infinite reverse;
-    }
-
-    @keyframes floatA {
-
-        0%,
-        100% {
-            transform: translateY(0) rotate(-6deg);
-        }
-
-        50% {
-            transform: translateY(-18px) rotate(2deg);
-        }
-    }
-
-    @keyframes floatB {
-
-        0%,
-        100% {
-            transform: translateY(0) rotate(5deg);
-        }
-
-        50% {
-            transform: translateY(16px) rotate(-4deg);
-        }
-    }
-
-    @keyframes floatC {
-
-        0%,
-        100% {
-            transform: translateY(0) rotate(-3deg) scale(1);
-        }
-
-        50% {
-            transform: translateY(-12px) rotate(4deg) scale(1.04);
-        }
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    @media (max-width:560px) {
-        .sticker--star {
-            width: 96px;
-            height: 96px;
-            font-size: 12px;
-        }
-
-        .sticker--arch {
-            width: 88px;
-            height: 88px;
-            font-size: 11px;
-        }
-
-        .sticker--circle {
-            width: 82px;
-            height: 82px;
-            font-size: 10px;
-        }
-
-        .sticker--tag,
-        .sticker--tag2 {
-            width: 74px;
-            height: 48px;
-            font-size: 9px;
-        }
-
-        .sticker--pill {
-            width: 84px;
-            height: 32px;
-            font-size: 10px;
-        }
-    }
-
-    /* ---------------- layout (mobile-first) ---------------- */
-    .stage {
-        position: relative;
-        z-index: 1;
-        height: 100%;
-        min-height: 100dvh;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 12px;
-    }
-
-    @media (min-width:600px) {
-        .stage {
-            padding: 20px;
-        }
-    }
-
-    .brandbar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex: none;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-
-    @media (min-width:600px) {
-        .brandbar {
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-    }
-
-    .brandbar__badge {
-        background: var(--cherry);
-        border-radius: 999px;
-        padding: 10px 22px;
-        box-shadow: 0 6px 0 var(--cherry-deep), 0 12px 20px rgba(74, 1, 16, .25);
-    }
-
-    .brandbar__badge img {
-        height: 20px;
-        display: block;
-    }
-
-    .brandbar__moments {
-        font-family: 'Baloo 2', cursive;
-        font-weight: 800;
-        color: var(--cherry);
-        font-size: 15px;
-        line-height: 1;
-        text-align: left;
-    }
-
-    .brandbar__moments span {
-        display: block;
-        font-family: 'Caveat', cursive;
-        font-weight: 700;
-        font-size: 15px;
-        color: var(--strawberry);
-        margin-top: 1px;
-    }
-
-    .card-wrap {
-        position: relative;
-        width: min(720px, 100%);
-        margin: 0 auto;
-        flex: 1;
-        display: flex;
-        min-height: 0;
-        container-type: inline-size;
-        container-name: quizcard;
-    }
-
-    .card {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        overflow-y: auto;
-        background: var(--surface);
-        border: 3px solid var(--surface);
-        border-radius: var(--radius-lg);
-        box-shadow: 0 14px 0 rgba(74, 1, 16, .10), 0 26px 50px rgba(74, 1, 16, .22);
-        padding: 20px;
-        text-align: center;
-    }
-
-    @media (min-width:600px) {
-        .card {
-            padding: clamp(24px, 5vw, 40px);
-        }
-    }
-
-    .screen {
-        display: none;
-    }
-
-    .screen.active {
-        display: block;
-        animation: pop .5s cubic-bezier(.2, .9, .25, 1.2);
-    }
-
-    @keyframes pop {
-        0% {
-            opacity: 0;
-            transform: translateY(14px) scale(.97);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-    }
-
-    /* intro */
-    .eyebrow {
-        display: inline-block;
-        font-weight: 700;
-        letter-spacing: .22em;
-        text-transform: uppercase;
-        font-size: 11.5px;
-        color: var(--strawberry);
-        margin-bottom: 10px;
-    }
-
-    .headline {
-        font-size: 26px;
-        color: var(--cherry);
-        text-shadow: 2px 3px 0 var(--pinkfoam);
-        text-wrap: balance;
-        line-height: 1.08;
-    }
-
-    .headline .alt {
-        color: var(--strawberry);
-        text-shadow: 2px 3px 0 var(--goldenrod);
-    }
-
-    .sub {
-        margin: 12px auto 0;
-        max-width: 38ch;
-        color: var(--ink-soft);
-        font-size: 14px;
-        line-height: 1.55;
-        opacity: .85;
-    }
-
-    .gen-row {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin: 18px 0 20px;
-        flex-wrap: wrap;
-    }
-
-    @container quizcard (min-width:460px) {
-        .headline {
-            font-size: clamp(30px, 6.4vw, 44px);
-            text-shadow: 3px 4px 0 var(--pinkfoam);
-            line-height: 1.04;
-        }
-
-        .headline .alt {
-            text-shadow: 3px 4px 0 var(--goldenrod);
-        }
-
-        .sub {
-            margin-top: 16px;
-            font-size: 15px;
-        }
-
-        .gen-row {
-            gap: 10px;
-            margin: 22px 0 26px;
-        }
-    }
-
-    .gen-chip {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 7px 14px 7px 8px;
-        border-radius: 999px;
-        font-family: 'Baloo 2', cursive;
-        font-weight: 700;
-        font-size: 12.5px;
-        color: var(--surface);
-    }
-
-    .gen-chip i {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        display: inline-block;
-        background: var(--surface);
-    }
-
-    .gen-chip--z {
-        background: var(--genz);
-    }
-
-    .gen-chip--a {
-        background: var(--alpha);
-        color: var(--cherry-deep);
-    }
-
-    .gen-chip--a i {
-        background: var(--cherry-deep);
-    }
-
-    .gen-chip--m {
-        background: var(--millennial);
-        color: var(--cherry-deep);
-    }
-
-    .btn {
-        appearance: none;
-        border: none;
-        cursor: pointer;
-        font-family: 'Baloo 2', cursive;
-        font-weight: 700;
-        font-size: 17px;
-        letter-spacing: .01em;
-        border-radius: 999px;
-        padding: 16px 40px;
-        color: var(--surface);
-        background: var(--cherry);
-        box-shadow: 0 7px 0 var(--cherry-deep), 0 14px 24px rgba(124, 1, 22, .3);
-        transition: transform .12s ease, box-shadow .12s ease;
-    }
-
-    .btn:active {
-        transform: translateY(5px);
-        box-shadow: 0 2px 0 var(--cherry-deep), 0 6px 14px rgba(124, 1, 22, .3);
-    }
-
-    .btn:focus-visible {
-        outline: 3px solid var(--strawberry);
-        outline-offset: 3px;
-    }
-
-    .btn--ghost {
-        background: var(--surface);
-        color: var(--cherry);
-        box-shadow: 0 7px 0 var(--pinkfoam), 0 14px 24px rgba(124, 1, 22, .14);
-        border: 2px solid var(--pinkfoam);
-    }
-
-    .hint {
-        margin-top: 14px;
-        font-size: 12px;
-        color: var(--ink-soft);
-        opacity: .6;
-    }
-
-    /* quiz */
-    .progress-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 16px;
-    }
-
-    @container quizcard (min-width:460px) {
-        .progress-row {
-            gap: 12px;
-            margin-bottom: 22px;
-        }
-    }
-
-    .progress-track {
-        flex: 1;
-        height: 10px;
-        border-radius: 999px;
-        background: var(--pinkfoam);
-        overflow: hidden;
-    }
-
-    .progress-fill {
-        height: 100%;
-        width: 0%;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--strawberry), var(--cherry));
-        transition: width .45s cubic-bezier(.2, .8, .2, 1);
-    }
-
-    .progress-label {
-        font-family: 'Baloo 2', cursive;
-        font-weight: 700;
-        color: var(--cherry);
-        font-size: 13px;
-        white-space: nowrap;
-    }
-
-    .q-text {
-        font-family: 'Baloo 2', cursive;
-        font-weight: 700;
-        color: var(--ink);
-        font-size: 18px;
-        line-height: 1.28;
-        text-wrap: balance;
-        margin-bottom: 16px;
-    }
-
-    .options {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .opt {
-        appearance: none;
-        text-align: left;
-        cursor: pointer;
-        border: 2.5px solid var(--pinkfoam);
-        background: var(--surface-2);
-        border-radius: var(--radius-md);
-        padding: 14px 14px;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        font-size: 14px;
-        color: var(--ink);
-        line-height: 1.35;
-        box-shadow: 0 5px 0 rgba(124, 1, 22, .08);
-        transition: transform .12s ease, box-shadow .12s ease, background .18s ease, border-color .18s ease;
-    }
-
-    @container quizcard (min-width:460px) {
-        .q-text {
-            font-size: clamp(19px, 4vw, 24px);
-            margin-bottom: 22px;
-            min-height: 2.4em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .options {
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .opt {
-            padding: 16px;
-            font-size: 14.5px;
-        }
-    }
-
-    .opt:hover {
-        border-color: var(--strawberry);
-        transform: translateY(-2px);
-    }
-
-    .opt:active {
-        transform: translateY(3px);
-        box-shadow: 0 1px 0 rgba(124, 1, 22, .08);
-    }
-
-    .opt.is-picked {
-        background: var(--cherry);
-        border-color: var(--cherry);
-        color: var(--surface);
-        transform: translateY(3px);
-        box-shadow: 0 1px 0 var(--cherry-deep);
-    }
-
-    .opt:disabled {
-        cursor: default;
-    }
-
-    .opt .letter {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background: var(--pinkfoam);
-        color: var(--cherry);
-        font-family: 'Baloo 2', cursive;
-        font-weight: 700;
-        font-size: 12px;
-        margin-right: 9px;
-    }
-
-    .opt.is-picked .letter {
-        background: var(--surface);
-        color: var(--cherry);
-    }
-
-    /* result */
-    .donut-wrap {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        margin: 4px auto 18px;
-    }
-
-    .donut-wrap svg {
-        transform: rotate(-90deg);
-    }
-
-    .donut-center {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .donut-center .pct {
-        font-family: 'Baloo 2', cursive;
-        font-weight: 800;
-        font-size: 34px;
-        color: var(--cherry);
-        line-height: 1;
-    }
-
-    .donut-center .cat {
-        font-family: 'Baloo 2', cursive;
-        font-weight: 700;
-        font-size: 13px;
-        color: var(--ink-soft);
-        margin-top: 4px;
-    }
-
-    .result-title {
-        font-family: 'Baloo 2', cursive;
-        font-weight: 800;
-        font-size: clamp(22px, 4.6vw, 28px);
-        color: var(--cherry);
-        margin-bottom: 8px;
-    }
-
-    .result-blurb {
-        font-size: 14.5px;
-        color: var(--ink-soft);
-        max-width: 34ch;
-        margin: 0 auto 22px;
-        line-height: 1.55;
-    }
-
-    .breakdown {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 26px;
-        text-align: left;
-    }
-
-    .break-row {
-        display: grid;
-        grid-template-columns: 88px 1fr 44px;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .break-name {
-        font-family: 'Baloo 2', cursive;
-        font-weight: 700;
-        font-size: 12.5px;
-        color: var(--ink);
-    }
-
-    .break-track {
-        height: 10px;
-        border-radius: 999px;
-        background: var(--pinkfoam);
-        overflow: hidden;
-    }
-
-    .break-fill {
-        height: 100%;
-        width: 0%;
-        border-radius: 999px;
-        transition: width .7s cubic-bezier(.2, .8, .2, 1);
-    }
-
-    .break-fill--z {
-        background: var(--genz);
-    }
-
-    .break-fill--a {
-        background: var(--alpha);
-    }
-
-    .break-fill--m {
-        background: var(--millennial);
-    }
-
-    .break-pct {
-        font-family: 'Baloo 2', cursive;
-        font-weight: 700;
-        font-size: 13px;
-        color: var(--ink);
-        text-align: right;
-        font-variant-numeric: tabular-nums;
-    }
-
-    .result-actions {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-    }
-
-    footer.tag {
-        flex: none;
-        margin-top: 10px;
-        font-size: 10px;
-        letter-spacing: .14em;
-        text-transform: uppercase;
-        color: var(--ink-soft);
-        opacity: .55;
-        text-align: center;
-    }
-
-    @media (min-width:600px) {
-        footer.tag {
-            margin-top: 16px;
-            font-size: 11px;
-        }
-    }
-</style>
+<link rel="stylesheet" href="styles.css">
 
 <div class="bg-scene" aria-hidden="true">
     <div class="blob blob--1"></div>
@@ -928,7 +15,7 @@
 <div class="sticker-layer" aria-hidden="true">
     <div class="sticker sticker--star">GEN Z<small>✦ terminally online</small></div>
     <div class="sticker sticker--arch">MILLENNIALS<small>✦ og internet</small></div>
-    <div class="sticker sticker--circle">GEN ALPHA<small>✦ algorithm raised</small></div>
+    <div class="sticker sticker--circle">GEN X<small>✦ analog raised</small></div>
     <div class="sticker sticker--tag">SKIN<br>CHECK</div>
     <div class="sticker sticker--tag2">HAIR<br>CHECK</div>
     <div class="sticker sticker--pill">100 MOMENTS</div>
@@ -949,12 +36,12 @@
                 <p class="eyebrow">Opal Booth Game</p>
                 <h1 class="headline">Which <span class="alt">Generation</span> Are You, Really?</h1>
                 <p class="sub">10 quick questions about texts, trends and taste. We'll tell you exactly how Gen&nbsp;Z,
-                    Gen&nbsp;Alpha or Millennial your soul really is.</p>
+                    Millennial or Gen&nbsp;X your soul really is.</p>
 
                 <div class="gen-row">
                     <span class="gen-chip gen-chip--z"><i></i>Gen Z</span>
-                    <span class="gen-chip gen-chip--a"><i></i>Gen Alpha</span>
                     <span class="gen-chip gen-chip--m"><i></i>Millennial</span>
+                    <span class="gen-chip gen-chip--x"><i></i>Gen X</span>
                 </div>
 
                 <button class="btn" id="startBtn">Start the Quiz</button>
@@ -976,13 +63,13 @@
                 <p class="eyebrow">Your Result</p>
                 <div class="donut-wrap">
                     <svg width="200" height="200" viewBox="0 0 200 200">
-                        <circle cx="100" cy="100" r="78" fill="none" stroke="var(--pinkfoam)" stroke-width="24" />
+                        <circle cx="100" cy="100" r="78" fill="none" stroke="var(--track)" stroke-width="24" />
                         <circle id="arcZ" cx="100" cy="100" r="78" fill="none" stroke="var(--genz)" stroke-width="24"
-                            stroke-linecap="round" />
-                        <circle id="arcA" cx="100" cy="100" r="78" fill="none" stroke="var(--alpha)" stroke-width="24"
                             stroke-linecap="round" />
                         <circle id="arcM" cx="100" cy="100" r="78" fill="none" stroke="var(--millennial)"
                             stroke-width="24" stroke-linecap="round" />
+                        <circle id="arcX" cx="100" cy="100" r="78" fill="none" stroke="var(--genx)" stroke-width="24"
+                            stroke-linecap="round" />
                     </svg>
                     <div class="donut-center">
                         <span class="pct" id="domPct">--%</span>
@@ -1002,18 +89,18 @@
                         <span class="break-pct" id="pctZ">0%</span>
                     </div>
                     <div class="break-row">
-                        <span class="break-name">Gen Alpha</span>
-                        <div class="break-track">
-                            <div class="break-fill break-fill--a" id="fillA"></div>
-                        </div>
-                        <span class="break-pct" id="pctA">0%</span>
-                    </div>
-                    <div class="break-row">
                         <span class="break-name">Millennial</span>
                         <div class="break-track">
                             <div class="break-fill break-fill--m" id="fillM"></div>
                         </div>
                         <span class="break-pct" id="pctM">0%</span>
+                    </div>
+                    <div class="break-row">
+                        <span class="break-name">Gen X</span>
+                        <div class="break-track">
+                            <div class="break-fill break-fill--x" id="fillX"></div>
+                        </div>
+                        <span class="break-pct" id="pctX">0%</span>
                     </div>
                 </div>
 
@@ -1033,98 +120,29 @@
         var logoImg = document.getElementById('opalLogo');
         if (LOGO_URL.indexOf('__') !== 0) { logoImg.src = LOGO_URL; }
 
-        var QUESTIONS = [
-            {
-                q: "Your go-to way to text “I'm on my way”?", opts: [
-                    { t: "“omw 🚗”", c: 'm' },
-                    { t: "A voice note, no caption", c: 'z' },
-                    { t: "A Snap of your location, no words", c: 'a' },
-                    { t: "A full sentence, with punctuation", c: 'm' }
-                ]
-            },
-            {
-                q: "Pick a Saturday morning cartoon memory:", opts: [
-                    { t: "SpongeBob, Rugrats", c: 'm' },
-                    { t: "Adventure Time, Gravity Falls", c: 'z' },
-                    { t: "Skibidi Toilet, Brawl Stars content", c: 'a' },
-                    { t: "Don't really remember cartoons", c: 'm' }
-                ]
-            },
-            {
-                q: "Your reaction to something funny online:", opts: [
-                    { t: "“LOL” or “lmaooo”", c: 'm' },
-                    { t: "💀 or “I'm deceased”", c: 'z' },
-                    { t: "“This is so real” / brainrot term (“gyatt,” “rizz”)", c: 'a' },
-                    { t: "A GIF", c: 'm' }
-                ]
-            },
-            {
-                q: "Preferred way to discover new music:", opts: [
-                    { t: "TikTok sounds", c: 'a' },
-                    { t: "Spotify algorithm / Discover Weekly", c: 'z' },
-                    { t: "Radio or a friend's playlist / burned CD nostalgia", c: 'm' },
-                    { t: "YouTube", c: 'z' }
-                ]
-            },
-            {
-                q: "Your first social media platform was:", opts: [
-                    { t: "MySpace or Facebook", c: 'm' },
-                    { t: "Instagram or Snapchat", c: 'z' },
-                    { t: "TikTok", c: 'a' },
-                    { t: "Never had one until recently", c: 'm' }
-                ]
-            },
-            {
-                q: "A “core memory” purchase for you:", opts: [
-                    { t: "iPod / flip phone", c: 'm' },
-                    { t: "AirPods / first smartphone in middle school", c: 'z' },
-                    { t: "Roblox currency / gaming skins", c: 'a' },
-                    { t: "A CD or DVD", c: 'm' }
-                ]
-            },
-            {
-                q: "How do you prefer to watch shows?", opts: [
-                    { t: "Binge a whole season on a streaming service", c: 'z' },
-                    { t: "Short clips / highlights, never the full episode", c: 'a' },
-                    { t: "Live, when it airs — appointment viewing", c: 'm' },
-                    { t: "DVD box set or downloaded torrent", c: 'm' }
-                ]
-            },
-            {
-                q: "Pick a slang word you actually use:", opts: [
-                    { t: "“Bet” / “No cap”", c: 'z' },
-                    { t: "“Rizz” / “Gyatt” / “Sigma”", c: 'a' },
-                    { t: "“Epic fail” / “That's cray”", c: 'm' },
-                    { t: "“Slay” / “It's giving...”", c: 'z' }
-                ]
-            },
-            {
-                q: "Your dream job as a kid was inspired by:", opts: [
-                    { t: "A YouTuber or streamer", c: 'z' },
-                    { t: "A Roblox / Minecraft creator or influencer", c: 'a' },
-                    { t: "A TV/movie star or athlete", c: 'm' },
-                    { t: "A “traditional” job (doctor, astronaut)", c: 'm' }
-                ]
-            },
-            {
-                q: "Which best describes your humor?", opts: [
-                    { t: "Ironic, deadpan, absurdist memes", c: 'z' },
-                    { t: "Chaotic, fast-cut, nonsensical (brainrot humor)", c: 'a' },
-                    { t: "Sitcom-style, witty one-liners", c: 'm' },
-                    { t: "Dark humor / sarcasm", c: 'z' }
-                ]
-            }
-        ];
 
         var BLURBS = {
             z: { name: 'Gen Z', text: "Terminally online, ironically self-aware, and allergic to cringe." },
-            a: { name: 'Gen Alpha', text: "Brainrot native. You were basically raised by an algorithm." },
-            m: { name: 'Millennial', text: "You remember dial-up and unironically miss it." }
+            m: { name: 'Millennial', text: "You remember dial-up and unironically miss it." },
+            x: { name: 'Gen X', text: "Latchkey original. Analog-raised, low-key, and immune to hype." }
         };
         var LETTERS = ['A', 'B', 'C', 'D'];
+        var PER_PLAY = 10;
+
+        function shuffle(arr) {
+            var a = arr.slice();
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var t = a[i]; a[i] = a[j]; a[j] = t;
+            }
+            return a;
+        }
+
+        var POOL = [];
+        var QUESTIONS = [];
 
         var idx = 0;
-        var scores = { z: 0, a: 0, m: 0 };
+        var scores = { z: 0, x: 0, m: 0 };
         var locked = false;
 
         var screens = {
@@ -1177,9 +195,9 @@
         }
 
         function normalize(sc) {
-            var cats = ['z', 'a', 'm'];
-            var total = sc.z + sc.a + sc.m;
-            if (total === 0) return { z: 0, a: 0, m: 100 };
+            var cats = ['z', 'm', 'x'];
+            var total = sc.z + sc.x + sc.m;
+            if (total === 0) return { z: 0, x: 0, m: 100 };
             var raw = {}, floors = {}, usedSum = 0;
             cats.forEach(function (c) {
                 raw[c] = sc[c] / total * 100;
@@ -1192,14 +210,14 @@
                 if (fb !== fa) return fb - fa;
                 return sc[b] - sc[a];
             });
-            var result = { z: floors.z, a: floors.a, m: floors.m };
+            var result = { z: floors.z, x: floors.x, m: floors.m };
             for (var k = 0; k < remainder; k++) { result[order[k]] += 1; }
             return result;
         }
 
         function showResult() {
             var pct = normalize(scores);
-            var order = ['z', 'a', 'm'];
+            var order = ['z', 'm', 'x'];
             var dominant = order.reduce(function (best, c) {
                 return pct[c] > pct[best] ? c : best;
             }, 'z');
@@ -1210,21 +228,21 @@
             document.getElementById('resultBlurb').textContent = BLURBS[dominant].text;
 
             document.getElementById('pctZ').textContent = pct.z + '%';
-            document.getElementById('pctA').textContent = pct.a + '%';
             document.getElementById('pctM').textContent = pct.m + '%';
+            document.getElementById('pctX').textContent = pct.x + '%';
 
             requestAnimationFrame(function () {
                 document.getElementById('fillZ').style.width = pct.z + '%';
-                document.getElementById('fillA').style.width = pct.a + '%';
                 document.getElementById('fillM').style.width = pct.m + '%';
+                document.getElementById('fillX').style.width = pct.x + '%';
             });
 
             var r = 78, C = 2 * Math.PI * r;
             var cum = 0;
             var arcs = [
                 { id: 'arcZ', v: pct.z },
-                { id: 'arcA', v: pct.a },
-                { id: 'arcM', v: pct.m }
+                { id: 'arcM', v: pct.m },
+                { id: 'arcX', v: pct.x }
             ];
             arcs.forEach(function (a) {
                 var seg = a.v / 100 * C;
@@ -1237,14 +255,40 @@
             showScreen('result');
         }
 
-        function reset() {
+        function startQuiz() {
             idx = 0;
-            scores = { z: 0, a: 0, m: 0 };
+            scores = { z: 0, x: 0, m: 0 };
+            QUESTIONS = shuffle(POOL).slice(0, PER_PLAY);
             renderQuestion();
             showScreen('quiz');
         }
 
-        document.getElementById('startBtn').addEventListener('click', reset);
-        document.getElementById('retakeBtn').addEventListener('click', reset);
+        var startBtn = document.getElementById('startBtn');
+        var hint = document.querySelector('#screen-intro .hint');
+        var READY_HINT = hint.textContent;
+
+        startBtn.disabled = true;
+        hint.textContent = 'Loading questions…';
+
+        fetch('questions.json')
+            .then(function (res) {
+                if (!res.ok) { throw new Error('HTTP ' + res.status); }
+                return res.json();
+            })
+            .then(function (data) {
+                if (!Array.isArray(data) || !data.length) { throw new Error('questions.json is empty'); }
+                POOL = data;
+                startBtn.disabled = false;
+                hint.textContent = READY_HINT;
+            })
+            .catch(function (err) {
+                hint.textContent = "Couldn't load questions.json — serve this folder over http.";
+                console.error('Failed to load questions.json:', err);
+            });
+
+        startBtn.addEventListener('click', startQuiz);
+        document.getElementById('retakeBtn').addEventListener('click', function () {
+            showScreen('intro');
+        });
     })();
 </script>

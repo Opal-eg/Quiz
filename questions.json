@@ -1,0 +1,272 @@
+[
+  {
+    "q": "Your go-to way to text “I'm on my way”?",
+    "opts": [
+      { "t": "“omw 🚗”", "c": "m" },
+      { "t": "A voice note, no caption", "c": "z" },
+      { "t": "You just call — faster than typing", "c": "x" },
+      { "t": "A full sentence, with punctuation.", "c": "x" }
+    ]
+  },
+  {
+    "q": "Pick a Saturday morning cartoon memory:",
+    "opts": [
+      { "t": "SpongeBob, Rugrats", "c": "m" },
+      { "t": "Adventure Time, Gravity Falls", "c": "z" },
+      { "t": "Looney Tunes, Transformers, He-Man", "c": "x" },
+      { "t": "Thundercats and Scooby-Doo reruns", "c": "x" }
+    ]
+  },
+  {
+    "q": "Your reaction to something funny online:",
+    "opts": [
+      { "t": "“LOL” or “lmaooo”", "c": "m" },
+      { "t": "💀 or “I'm deceased”", "c": "z" },
+      { "t": ":-) or forwarding it as an email", "c": "x" },
+      { "t": "A GIF", "c": "m" }
+    ]
+  },
+  {
+    "q": "Preferred way to discover new music:",
+    "opts": [
+      { "t": "MTV, or a mixtape taped off the radio", "c": "x" },
+      { "t": "Spotify algorithm / Discover Weekly", "c": "z" },
+      { "t": "Radio or a friend's playlist / burned CD nostalgia", "c": "m" },
+      { "t": "YouTube", "c": "z" }
+    ]
+  },
+  {
+    "q": "Your first social media platform was:",
+    "opts": [
+      { "t": "MySpace or Facebook", "c": "m" },
+      { "t": "Instagram or Snapchat", "c": "z" },
+      { "t": "AOL chat rooms / ICQ / MSN Messenger", "c": "x" },
+      { "t": "Never had one until recently", "c": "x" }
+    ]
+  },
+  {
+    "q": "A “core memory” purchase for you:",
+    "opts": [
+      { "t": "iPod / flip phone", "c": "m" },
+      { "t": "AirPods / first smartphone in middle school", "c": "z" },
+      { "t": "A Walkman or a Sony Discman", "c": "x" },
+      { "t": "A CD or DVD", "c": "m" }
+    ]
+  },
+  {
+    "q": "How do you prefer to watch shows?",
+    "opts": [
+      { "t": "Binge a whole season on a streaming service", "c": "z" },
+      { "t": "Taped it on VHS to watch later", "c": "x" },
+      { "t": "Live, when it airs — appointment viewing", "c": "x" },
+      { "t": "DVD box set or downloaded torrent", "c": "m" }
+    ]
+  },
+  {
+    "q": "Pick a slang word you actually use:",
+    "opts": [
+      { "t": "“Bet” / “No cap”", "c": "z" },
+      { "t": "“Gnarly” / “Bogus” / “As if!”", "c": "x" },
+      { "t": "“Epic fail” / “That's cray”", "c": "m" },
+      { "t": "“Slay” / “It's giving...”", "c": "z" }
+    ]
+  },
+  {
+    "q": "Your dream job as a kid was inspired by:",
+    "opts": [
+      { "t": "A YouTuber or streamer", "c": "z" },
+      { "t": "A rock star or an MTV VJ", "c": "x" },
+      { "t": "A TV/movie star or athlete", "c": "m" },
+      { "t": "A “traditional” job (doctor, astronaut)", "c": "m" }
+    ]
+  },
+  {
+    "q": "Which best describes your humor?",
+    "opts": [
+      { "t": "Ironic, deadpan, absurdist memes", "c": "z" },
+      { "t": "Dry, wry and unbothered — you invented the eye-roll", "c": "x" },
+      { "t": "Sitcom-style, witty one-liners", "c": "m" },
+      { "t": "Dark humor / sarcasm", "c": "z" }
+    ]
+  },
+  {
+    "q": "An unknown number is calling you:",
+    "opts": [
+      { "t": "You don't answer. Ever.", "c": "z" },
+      { "t": "Let it ring, then Google the number", "c": "m" },
+      { "t": "Pick it up — it might be important", "c": "x" },
+      { "t": "Text back: “who's this?”", "c": "z" }
+    ]
+  },
+  {
+    "q": "Your camera roll is mostly:",
+    "opts": [
+      { "t": "Screenshots and saved memes", "c": "z" },
+      { "t": "Brunch, travel, the dog", "c": "m" },
+      { "t": "Documents, receipts and where you parked", "c": "x" },
+      { "t": "Barely anything — you print the good ones", "c": "x" }
+    ]
+  },
+  {
+    "q": "Pick a phone you actually owned:",
+    "opts": [
+      { "t": "Nokia 3310, with Snake on it", "c": "x" },
+      { "t": "BlackBerry or an iPhone 3G", "c": "m" },
+      { "t": "iPhone X or newer, nothing before", "c": "z" },
+      { "t": "Motorola Razr flip", "c": "m" }
+    ]
+  },
+  {
+    "q": "Your relationship with email:",
+    "opts": [
+      { "t": "Inbox zero is a whole lifestyle", "c": "m" },
+      { "t": "It's your main messaging app", "c": "x" },
+      { "t": "12,000 unread, all of them promos", "c": "z" },
+      { "t": "You only open it for verification codes", "c": "z" }
+    ]
+  },
+  {
+    "q": "How do you pick a restaurant?",
+    "opts": [
+      { "t": "A TikTok review or an Instagram tag", "c": "z" },
+      { "t": "Google reviews, sorted by lowest first", "c": "m" },
+      { "t": "Someone recommended it, or you drove past", "c": "x" },
+      { "t": "Throw it to the group chat", "c": "m" }
+    ]
+  },
+  {
+    "q": "Your most-used piece of work software:",
+    "opts": [
+      { "t": "Excel, and you know the keyboard shortcuts", "c": "x" },
+      { "t": "Slack, Notion and twelve open tabs", "c": "m" },
+      { "t": "Whatever runs on your phone", "c": "z" },
+      { "t": "Google Docs, shared with everyone", "c": "m" }
+    ]
+  },
+  {
+    "q": "Ideal weekend:",
+    "opts": [
+      { "t": "Brunch plus one curated activity", "c": "m" },
+      { "t": "Plans cancelled. Staying in. Perfect.", "c": "z" },
+      { "t": "Yard work, a garage project, a cold drink", "c": "x" },
+      { "t": "A gig by a band from the '90s", "c": "x" }
+    ]
+  },
+  {
+    "q": "Work-life balance means:",
+    "opts": [
+      { "t": "You clock out at 5 and you always did", "c": "x" },
+      { "t": "You talk about it more than you practice it", "c": "m" },
+      { "t": "Four-day week or nothing", "c": "z" },
+      { "t": "Quiet quitting is just having boundaries", "c": "z" }
+    ]
+  },
+  {
+    "q": "A film you've quoted in the last year:",
+    "opts": [
+      { "t": "Ghostbusters, Die Hard, The Breakfast Club", "c": "x" },
+      { "t": "Mean Girls, Shrek, Anchorman", "c": "m" },
+      { "t": "A 40-second clip, source unknown", "c": "z" },
+      { "t": "Pulp Fiction", "c": "x" }
+    ]
+  },
+  {
+    "q": "Where does your music actually live?",
+    "opts": [
+      { "t": "On a shelf. On physical discs.", "c": "x" },
+      { "t": "In an iTunes library you still maintain", "c": "m" },
+      { "t": "One Spotify playlist with 900 songs", "c": "z" },
+      { "t": "Wherever the algorithm puts it", "c": "z" }
+    ]
+  },
+  {
+    "q": "Someone sends you a three-minute voice note:",
+    "opts": [
+      { "t": "You'd genuinely rather they had called", "c": "x" },
+      { "t": "Listen at 1.5x, reply in text", "c": "m" },
+      { "t": "Send a four-minute one straight back", "c": "z" },
+      { "t": "Leave it unplayed for a week", "c": "m" }
+    ]
+  },
+  {
+    "q": "Your take on the dress code:",
+    "opts": [
+      { "t": "Business casual, shirt tucked in", "c": "x" },
+      { "t": "Nice top, comfy trousers, camera-ready only", "c": "m" },
+      { "t": "If it's clean, it's formal", "c": "z" },
+      { "t": "Sneakers with absolutely everything", "c": "z" }
+    ]
+  },
+  {
+    "q": "How do you get somewhere new?",
+    "opts": [
+      { "t": "You know the way — or you'll read a map", "c": "x" },
+      { "t": "Maps, but you check the route first", "c": "m" },
+      { "t": "Maps, blindly, every single time", "c": "z" },
+      { "t": "Printed directions, just in case", "c": "m" }
+    ]
+  },
+  {
+    "q": "Your shopping instinct:",
+    "opts": [
+      { "t": "Compare the price across three tabs", "c": "m" },
+      { "t": "Tap whatever the TikTok Shop link says", "c": "z" },
+      { "t": "Go to the shop and look at it in person", "c": "x" },
+      { "t": "Buy the brand you've always bought", "c": "x" }
+    ]
+  },
+  {
+    "q": "Pick a games console memory:",
+    "opts": [
+      { "t": "Atari, NES or a Sega Mega Drive", "c": "x" },
+      { "t": "PlayStation 2 or the Wii", "c": "m" },
+      { "t": "Nintendo Switch or a gaming PC", "c": "z" },
+      { "t": "Game Boy Color on a car journey", "c": "m" }
+    ]
+  },
+  {
+    "q": "How do you feel about being on camera?",
+    "opts": [
+      { "t": "Front-facing is your neutral state", "c": "z" },
+      { "t": "Fine, once you've found the angle", "c": "m" },
+      { "t": "Absolutely not", "c": "x" },
+      { "t": "Only for the group photo", "c": "x" }
+    ]
+  },
+  {
+    "q": "Your kind of workout:",
+    "opts": [
+      { "t": "A boutique class booked through an app", "c": "m" },
+      { "t": "A 12-minute routine off a video", "c": "z" },
+      { "t": "Running, weights, or actual manual labour", "c": "x" },
+      { "t": "Whatever the fitness tracker tells you", "c": "m" }
+    ]
+  },
+  {
+    "q": "What's on your keys?",
+    "opts": [
+      { "t": "House, car, office and a supermarket fob", "c": "x" },
+      { "t": "Two keys and an AirTag", "c": "m" },
+      { "t": "One key — your phone does the rest", "c": "z" },
+      { "t": "A lanyard from a conference in 2003", "c": "x" }
+    ]
+  },
+  {
+    "q": "You need to learn something new. You:",
+    "opts": [
+      { "t": "Watch a YouTube tutorial at 2x speed", "c": "z" },
+      { "t": "Sign up for an online course you'll half-finish", "c": "m" },
+      { "t": "Read the manual, front to back", "c": "x" },
+      { "t": "Ask someone who already knows how", "c": "x" }
+    ]
+  },
+  {
+    "q": "How do you share a strong opinion?",
+    "opts": [
+      { "t": "A long, heavily caveated post", "c": "m" },
+      { "t": "A screenshot with one word on it", "c": "z" },
+      { "t": "Say it out loud, to the person", "c": "x" },
+      { "t": "Close friends story, then delete it", "c": "z" }
+    ]
+  }
+]
